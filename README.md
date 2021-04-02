@@ -2,22 +2,15 @@
 
 #### 介绍
 本仓库基于 php 语言实现的常用数据结构。
+感谢 liuyubobobo 老师在慕课网上推出的实战课程《玩儿转数据结构》，Java 版本的 Github 仓库地址请访问: https://github.com/liuyubobobo/Play-with-Data-Structures 。
 
 #### 软件架构
-软件架构说明
+PHP>=7.2
 
 
-#### 安装教程
+#### 使用教程
+main.php文件是主文件，测试使用可以在此文件里面进行，里面有使用例子。
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
-
-#### 使用说明
-
-1.  xxxx
-2.  xxxx
-3.  xxxx
 
 #### 参与贡献
 
