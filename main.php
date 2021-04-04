@@ -1,6 +1,6 @@
 <?php
 /**
- * 测试入口文件
+ * 测试入口文件 - 保证一次只引用一个类！！！
  * 在这里直接引用需要的类即可
  * 示例：
  */
@@ -10,7 +10,11 @@
 //include "LinkedInfo/LinkedList.php";
 
 //二分搜索树
-include "BSTInfo/BST.php";
+//include "BSTInfo/BST.php";
+
+//集合
+//include_once "Set/BSTSet.php";
+include_once "Set/LinkedListSet.php";
 
 /**
  * 链表测试 - start
@@ -29,7 +33,7 @@ include "BSTInfo/BST.php";
 //链表测试 - end
 
 //二分搜索树测试用例
-$root = new BST();
+//$root = new BST();
 //$arr = [5,3,6,8,4,2];
 //foreach ($arr as $value){
 //    $root->add($value);
@@ -63,21 +67,37 @@ $root = new BST();
 //}
 
 //test removeMax
-for ($i = 0; $i < 1000; $i++){
-    $rand = rand(10,10000);
-    $root->add($rand);
-}
-while(!$root->isEmpty()){
-    $arr[] = $root->removeMax();
-}
+//for ($i = 0; $i < 1000; $i++){
+//    $rand = rand(10,10000);
+//    $root->add($rand);
+//}
+//while(!$root->isEmpty()){
+//    $arr[] = $root->removeMax();
+//}
+//
+//for ($i = 1; $i < count($arr); $i++){
+//    if($arr[$i - 1] < $arr[$i]){
+//        echo "排序有问题";
+//        exit;
+//    }
+//}
+//print_r($arr);exit;
 
-for ($i = 1; $i < count($arr); $i++){
-    if($arr[$i - 1] < $arr[$i]){
-        echo "排序有问题";
-        exit;
-    }
-}
-print_r($arr);exit;
+//集合测试
+$word = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+//$set = new BSTSet();
+//for ($i = 0; $i < 100; $i++){
+//    $rand = rand(1,52);
+//    $str = substr($word,$rand,1);
+//    $set->add($str);
+//}
+//$set = new LinkedListSet();
+//for ($i = 0; $i < 100; $i++){
+//    $rand = rand(1,52);
+//    $str = substr($word,$rand,1);
+//    $set->add($str);
+//}
+//print_r($set);
 
 
 
