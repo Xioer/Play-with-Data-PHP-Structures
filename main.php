@@ -21,6 +21,12 @@
 //BSTMap
 //include "MapInfo/BSTMap.php";
 
+//堆
+//include "MaxHeap/MaxHeap.php";
+
+//优先队列
+include "MaxHeap/PriorityQueue.php";
+
 /**
  * 链表测试 - start
  */
@@ -106,19 +112,50 @@
 
 
 //map测试 - 其实php的key-value数组就能搞定
-$start_time = microtime();
-$map = new BSTMap();
+//$start_time = microtime();
+//$map = new BSTMap();
 //$map = new LinkedListMap();
-$k = 0;
-for ($i = 0; $i < 100000; $i++){
-    $k++;
-    $map->add($i,$k);
-}
-//print_r($map);
-$end_time = microtime();
-print_r(($end_time - $start_time)*1000);
+//$k = 0;
+//for ($i = 0; $i < 100000; $i++){
+//    $k++;
+//    $map->add($i,$k);
+//}
+////print_r($map);
+//$end_time = microtime();
+//print_r(($end_time - $start_time)*1000);
+
+//测试堆 - 最大堆
+//$heap = new MaxHeap();
+//$n = 100;
+//for ($i = $n; $i > 0; $i--){
+//    $heap->add($i);
+//}
+//$newarr = [];
+//for ($i = 1; $i < $n; $i++){
+//    $newarr[] = $heap->extractMax();
+//}
+//
+//for ($i = 1; $i < $n; $i++){
+//    if ($newarr[$i-1] < $newarr[$i]){
+//        echo "堆出错";
+//        exit;
+//    }
+//}
+//$arr = [6,7,45,65,87,5353,3,5,8,10,11,12];
+//$heap->Maxheapi($arr);
+//$newarr = [];
+//for ($i = 0; $i < count($arr); $i++){
+//    $newarr[] = $heap->extractMax();
+//}
+//print_r($newarr);
+//echo "堆正常";
 
 
+/**
+ * 优先队列测试
+ */
+$priqueue = new  PriorityQueue();
+print_r($priqueue);
 
 
 
