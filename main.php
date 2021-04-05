@@ -1,7 +1,7 @@
 <?php
 /**
  * 测试入口文件 - 保证一次只引用一个类！！！
- * 在这里直接引用需要的类即可
+ * 在这里直接引用需要的类即可(其实大部分时候php数组直接一把梭了)
  * 示例：
  */
 //链表队列
@@ -14,7 +14,12 @@
 
 //集合
 //include_once "Set/BSTSet.php";
-include_once "Set/LinkedListSet.php";
+//include_once "Set/LinkedListSet.php";
+
+//map
+//include "MapInfo/LinkedListMap.php";
+//BSTMap
+//include "MapInfo/BSTMap.php";
 
 /**
  * 链表测试 - start
@@ -84,7 +89,7 @@ include_once "Set/LinkedListSet.php";
 //print_r($arr);exit;
 
 //集合测试
-$word = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+//$word = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
 //$set = new BSTSet();
 //for ($i = 0; $i < 100; $i++){
 //    $rand = rand(1,52);
@@ -98,6 +103,20 @@ $word = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
 //    $set->add($str);
 //}
 //print_r($set);
+
+
+//map测试 - 其实php的key-value数组就能搞定
+$start_time = microtime();
+$map = new BSTMap();
+//$map = new LinkedListMap();
+$k = 0;
+for ($i = 0; $i < 100000; $i++){
+    $k++;
+    $map->add($i,$k);
+}
+//print_r($map);
+$end_time = microtime();
+print_r(($end_time - $start_time)*1000);
 
 
 

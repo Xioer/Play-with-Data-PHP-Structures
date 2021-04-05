@@ -320,7 +320,7 @@ class BST
      */
     public function remove($e)
     {
-        $this->root = removePri($this->root,$e);
+        $this->root = $this->removePri($this->root,$e);
     }
 
     private function removePri($node, $e)
@@ -340,7 +340,7 @@ class BST
             //待删除节点左子树为空的情况
             if(is_null($node->left)){
                 $rightNode = $node->right;
-                $node->right = nulll;
+                $node->right = null;
                 $this->size--;
                 return $rightNode;
             }
