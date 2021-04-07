@@ -25,7 +25,10 @@
 //include "MaxHeap/MaxHeap.php";
 
 //优先队列
-include "MaxHeap/PriorityQueue.php";
+//include "MaxHeap/PriorityQueue.php";
+
+//线段树
+include "SegmentTree/SegmentTree.php";
 
 /**
  * 链表测试 - start
@@ -154,8 +157,20 @@ include "MaxHeap/PriorityQueue.php";
 /**
  * 优先队列测试
  */
-$priqueue = new  PriorityQueue();
-print_r($priqueue);
+//$priqueue = new  PriorityQueue();
+
+/**
+ * 线段树
+ */
+$arr = [-2,0,3,-5,2,-1];
+$SegmentTree = new SegmentTree($arr);
+$res1 = $SegmentTree->query(0,2);
+$res2 = $SegmentTree->query(2,5);
+$res3 = $SegmentTree->query(0,5);
+$str = $SegmentTree->toString();
+echo $res1."\n";
+echo $res2."\n";
+echo $res3."\n";
 
 
 
