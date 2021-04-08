@@ -34,6 +34,7 @@ class SegmentTree
         $this->tree[$treeIndex] = $this->tree[$leftTreeIndex] + $this->tree[$rightTreeIndex];
     }
 
+    //区间查询
     public function query($queryL, $queryR)
     {
         if ($queryL < 0 || $queryR >= $this->getSize()){
@@ -51,6 +52,7 @@ class SegmentTree
      * @param $r
      * @param $queryL
      * @param $queryR
+     * @return integer
      */
     private function queryDG($treeIndex, $l, $r, $queryL, $queryR)
     {
@@ -71,11 +73,47 @@ class SegmentTree
         return $leftResult + $rightResult;
     }
 
+    //把index位置的值更新为e O(logN)
+    public function set($index,$e)
+    {
+        if ($index < 0 || $index > count($this->data)){
+            echo "索引错误";
+            return false;
+        }
+        $this->data[$index] = $e;
+        $this->setPri(0, 0, count($this->data) - 1, $index, $e);
+    }
+
+    //在以treeIndex为根的线段树中更新index的值为e
+    private function setPri($treeIndex, $l, $r, $index,$e)
+    {
+        if ($l == $r){
+            $this->tree[$index] = $e;
+            return;
+        }
+        $mid = $l + ($r - $l) / 2;
+        $leftTreeIndex = $this->leftChild($treeIndex);
+        $rightTreeIndex = $this->rightChild($treeIndex);
+        if ($index >= $mid + 1){
+            $this->setPri($rightTreeIndex, $mid +1,$r,$index,$e);
+        }else{
+            $this->setPri($leftTreeIndex,$l,$mid,$index,$e);
+        }
+        $this->tree[$index] = $this->tree[$leftTreeIndex] + $this->tree[$rightTreeIndex];
+
+
+    }
+
     public function getSize()
     {
         return count($this->data);
     }
 
+    /**
+     * 查询 O(logN)
+     * @param $index
+     * @return false|mixed
+     */
     public function get($index)
     {
         if($index < 0 || $index >= $this->getSize()){
