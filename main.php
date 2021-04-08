@@ -162,15 +162,31 @@ include "SegmentTree/SegmentTree.php";
 /**
  * 线段树
  */
-$arr = [-2,0,3,-5,2,-1];
-$SegmentTree = new SegmentTree($arr);
-$res1 = $SegmentTree->query(0,2);
-$res2 = $SegmentTree->query(2,5);
-$res3 = $SegmentTree->query(0,5);
-$str = $SegmentTree->toString();
-echo $res1."\n";
-echo $res2."\n";
-echo $res3."\n";
+//$arr = [-2,0,3,-5,2,-1];
+//$SegmentTree = new SegmentTree($arr);
+//$res1 = $SegmentTree->query(0,2);
+//$res2 = $SegmentTree->query(2,5);
+//$res3 = $SegmentTree->query(0,5);
+//$str = $SegmentTree->toString();
+//echo $res1."\n";
+//echo $res2."\n";
+//echo $res3."\n";
+
+//字符串截取 - 查找第一个不重复字符重现的次数
+$str = "loveleetcode";
+$freq = [];
+for ($i = 0; $i < strlen($str); $i++){
+    $freq[ord(substr( $str, $i, $i+1 )) - ord('a')]++;
+}
+
+$index = 0;
+for ($i = 0; $i < strlen($str); $i++){
+    if ($freq[ord(substr( $str, $i, $i+1 )) - ord('a')] == 1){
+        $index = $i;
+        break;
+    }
+}
+echo $index == 0 ? -1 : $index;
 
 
 
