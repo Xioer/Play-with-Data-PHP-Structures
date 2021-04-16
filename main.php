@@ -173,20 +173,22 @@ include "SegmentTree/SegmentTree.php";
 //echo $res3."\n";
 
 //字符串截取 - 查找第一个不重复字符重现的次数
-$str = "loveleetcode";
-$freq = [];
-for ($i = 0; $i < strlen($str); $i++){
-    $freq[ord(substr( $str, $i, $i+1 )) - ord('a')]++;
-}
-
-$index = 0;
-for ($i = 0; $i < strlen($str); $i++){
-    if ($freq[ord(substr( $str, $i, $i+1 )) - ord('a')] == 1){
-        $index = $i;
-        break;
-    }
-}
-echo $index == 0 ? -1 : $index;
+//$str = "loveleetcode";
+//$freq = [];
+//for ($i = 0; $i < strlen($str); $i++){
+//    $freq[ord(substr( $str, $i, $i+1 )) - ord('a')]++;
+//}
+//
+//$index = 0;
+//for ($i = 0; $i < strlen($str); $i++){
+//    if ($freq[ord(substr( $str, $i, $i+1 )) - ord('a')] == 1){
+//        $index = $i;
+//        break;
+//    }
+//}
+//echo $index == 0 ? -1 : $index;
+//
+//echo hash('sha256','aaaa');
 
 
 
