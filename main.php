@@ -28,7 +28,15 @@
 //include "MaxHeap/PriorityQueue.php";
 
 //线段树
-include "SegmentTree/SegmentTree.php";
+//include "SegmentTree/SegmentTree.php";
+
+
+//Trie
+include_once "TrieInfo/Trie.php";
+
+$aaa = new Trie();
+print_r($aaa);
+
 
 /**
  * 链表测试 - start
