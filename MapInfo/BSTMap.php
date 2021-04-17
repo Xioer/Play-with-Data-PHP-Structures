@@ -157,7 +157,6 @@ class BSTMap implements Map
 
     public function get($k)
     {
-        // TODO: Implement get() method.
         $node = $this->getNode($this->root,$k);
         return is_null($node) ? null : $node->value;
     }

@@ -34,8 +34,6 @@
 //Trie
 include_once "TrieInfo/Trie.php";
 
-$aaa = new Trie();
-print_r($aaa);
 
 
 /**
@@ -199,7 +197,18 @@ print_r($aaa);
 //echo hash('sha256','aaaa');
 
 
+//trie测试
+$words = ['string','word','day','one','iuwejr','kdhkldfgow'];
+$trie = new Trie();
+
+$start_time = microtime(true)*1000;
+foreach ($words as $value) {
+    $trie->add($value);
+}
+foreach ($words as $val) {
+    $trie->contains($val);
+}
 
 
-
-
+$end_time = microtime(true)*1000;
+var_dump($trie->isPrefix('iuyy'));
