@@ -32,7 +32,11 @@
 
 
 //Trie
-include_once "TrieInfo/Trie.php";
+// include_once "TrieInfo/Trie.php";
+
+//并查集
+// include "UnionFind/UnionFind1.php";
+// include "UnionFind/UnionFind2.php";
 
 
 
@@ -198,17 +202,25 @@ include_once "TrieInfo/Trie.php";
 
 
 //trie测试
-$words = ['string','word','day','one','iuwejr','kdhkldfgow'];
-$trie = new Trie();
+// $words = ['string','word','day','one','iuwejr','kdhkldfgow'];
+// $trie = new Trie();
 
-$start_time = microtime(true)*1000;
-foreach ($words as $value) {
-    $trie->add($value);
-}
-foreach ($words as $val) {
-    $trie->contains($val);
-}
+// $start_time = microtime(true)*1000;
+// foreach ($words as $value) {
+//     $trie->add($value);
+// }
+// foreach ($words as $val) {
+//     $trie->contains($val);
+// }
 
 
-$end_time = microtime(true)*1000;
-var_dump($trie->isPrefix('iuyy'));
+// $end_time = microtime(true)*1000;
+// var_dump($trie->isPrefix('iuyy'));
+
+
+//并查集测试
+// $find = new UnionFind1(5);
+// $find2 = new UnionFind2(5);
+// print_r($find);
+// print_r($find2);
+// exit;
