@@ -38,6 +38,9 @@
 // include "UnionFind/UnionFind1.php";
 // include "UnionFind/UnionFind2.php";
 
+//BSTMapAvl
+include "AVLTree/BSTMapAvl.php";
+
 
 
 /**
@@ -224,3 +227,22 @@
 // print_r($find);
 // print_r($find2);
 // exit;
+
+
+//AVL - 平衡二叉树 对于任意一个节点，左子树和右子树的高度差不能超过1
+//平衡二叉树的高度和节点数量之间的关系也是O(logn)的
+$words = ['The', 'entire', 'Pro', 'Git', 'book', 'written', 'by',
+ 'Scott', 'Chacon', 'and', 'Ben', 'Straub', 'is', 'available', 'to', 'read',
+  'online', 'for', 'free', 'Dead', 'tree', 'versions', 'are', 'available',
+   'on', 'Amazon','com'];
+$maptree = new BSTMapAvl();
+foreach ($words as $word) {
+    if ($maptree->contains($word)) {
+        $maptree->set($word, $maptree->get($word) + 1);
+    }else {
+        $maptree->add($word, 1);
+    }
+}
+var_dump($maptree->isBST());
+var_dump($maptree->isBalanced());
+exit;
