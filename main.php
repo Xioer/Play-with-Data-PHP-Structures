@@ -39,8 +39,11 @@
 // include "UnionFind/UnionFind2.php";
 
 //BSTMapAvl
-include "AVLTree/BSTMapAvl.php";
+// include "AVLTree/BSTMapAvl.php";
 
+
+//红黑树
+include "RBTreeInfo/RBTree.php";
 
 
 /**
@@ -235,14 +238,29 @@ $words = ['The', 'entire', 'Pro', 'Git', 'book', 'written', 'by',
  'Scott', 'Chacon', 'and', 'Ben', 'Straub', 'is', 'available', 'to', 'read',
   'online', 'for', 'free', 'Dead', 'tree', 'versions', 'are', 'available',
    'on', 'Amazon','com'];
-$maptree = new BSTMapAvl();
-foreach ($words as $word) {
-    if ($maptree->contains($word)) {
-        $maptree->set($word, $maptree->get($word) + 1);
-    }else {
-        $maptree->add($word, 1);
-    }
-}
-var_dump($maptree->isBST());
-var_dump($maptree->isBalanced());
-exit;
+// $maptree = new BSTMapAvl();
+// foreach ($words as $word) {
+//     if ($maptree->contains($word)) {
+//         $maptree->set($word, $maptree->get($word) + 1);
+//     }else {
+//         $maptree->add($word, 1);
+//     }
+// }
+// var_dump($maptree->isBST());
+// var_dump($maptree->isBalanced());
+
+//红黑树测试
+// $rbt = new RBTree();
+// $start_time = microtime(true);
+// foreach ($words as $word) {
+//     if ($rbt->contains($word)) {
+//         $rbt->set($word, $rbt->get($word) + 1);
+//     }else {
+//         $rbt->add($word, 1);
+//     }
+// }
+// foreach ($words as $word) {
+//     $rbt->contains($word);
+// }
+// $end_time = microtime(true);
+// echo ($end_time - $start_time) * 1000 .'s';

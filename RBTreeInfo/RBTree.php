@@ -20,7 +20,7 @@ class RBTreeNode
         $this->value = $value;
         $this->right = null;
         $this->left = null;
-        $this->color = self::$RED;
+        $this->color = self::$RED;//true
     }
 }
 
@@ -44,6 +44,7 @@ class RBTree
     public function add($k, $v)
     {
         $this->root = $this->addE($this->root,$k,$v);
+        $this->root->color = self::$BLACK;
     }
 
     //判断节点是否是红节点
@@ -55,9 +56,49 @@ class RBTree
         return $node->color;
     }
 
+    //左旋转
+    private function leftRotate($node)
+    {
+        $x = $node->right;
+
+        //坐旋转
+        $node->right = $x->left;
+        $x->left = $node;
+
+        $x->color = $node->color;
+        $node->color = self::$RED;
+
+        return $x;
+    }
+
+    //右旋转
+    private function rightRotate($node)
+    {
+        $x = $node->left;
+
+        //坐旋转
+        $node->left = $x->right;
+        $x->right = $node;
+
+        $x->color = $node->color;
+        $node->color = self::$RED;
+
+        return $x;
+    }
+
+    //颜色翻转
+    private function flipColors($node)
+    {
+        $node->color = self::$RED;
+        $node->left->color = self::$BLACK;
+        $node->right->color = self::$BLACK;
+
+    }
+
+
     /**
-     * 向以node为根的二分搜索数中插入元素key,value,递归算法
-     * 返回插入新节点后二分搜索数的根
+     * 向以node为根的红黑树中插入元素key,value,递归算法
+     * 返回插入新节点后红黑树的根
      * @param $node
      * @param $k
      * @param $v
@@ -79,9 +120,22 @@ class RBTree
         }else{
             $node->value = $v;
         }
+
+        if ($this->isRed($node->right) && !$this->isRed($node->left)) {
+            $node = $this->leftRotate($node);
+        }
+        if ($this->isRed($node->left) && $this->isRed($node->left->left)) {
+            $node = $this->rightRotate($node);
+        }
+        if ($this->isRed($node->left) && $this->isRed($node->right)) {
+            $this->flipColors($node);
+        }
+        
+
         return $node;
     }
 
+    //删除元素
     public function remove($k)
     {
         $node = $this->getNode($this->root,$k);
