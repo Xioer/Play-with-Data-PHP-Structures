@@ -250,8 +250,8 @@ $words = ['The', 'entire', 'Pro', 'Git', 'book', 'written', 'by',
 // var_dump($maptree->isBalanced());
 
 //红黑树测试
-// $rbt = new RBTree();
-// $start_time = microtime(true);
+$rbt = new RBTree();
+$start_time = microtime(true);
 // foreach ($words as $word) {
 //     if ($rbt->contains($word)) {
 //         $rbt->set($word, $rbt->get($word) + 1);
@@ -262,5 +262,10 @@ $words = ['The', 'entire', 'Pro', 'Git', 'book', 'written', 'by',
 // foreach ($words as $word) {
 //     $rbt->contains($word);
 // }
-// $end_time = microtime(true);
-// echo ($end_time - $start_time) * 1000 .'s';
+for ($i=1; $i < 1000000; $i++) {
+    // $rand = rand(1,20000000);
+    $rbt->add($i,null);
+}
+
+$end_time = microtime(true);
+echo ($end_time - $start_time) .'s';
