@@ -13,7 +13,7 @@ include_once "SortHelper/SortHelper.php";
 // $arr = ['D','G','Z','B','A'];
 
 
-function insertSort($arr)
+function insertSort(&$arr)
 {
     $arr_len = count($arr);
     if ($arr_len <= 0) {
@@ -53,7 +53,6 @@ function insertSort($arr)
         //全部赋值完以后，再把值给到最后一个索引的位置
         $arr[$j] = $value;
     }
-    return $arr;
 }
 //对arr[l...r]范围的数组进行插入排序
 function insertionSort($arr, $l, $r)
@@ -69,7 +68,7 @@ function insertionSort($arr, $l, $r)
 
 $start = microtime(true);
 $sortarr = SortHelper::generateRandomArray(10,100,500);
-$sort_arr = insertSort($sortarr);
+insertSort($sortarr);
 $endtime = microtime(true);
 echo '排序耗时：'.($endtime - $start).'毫秒'."\n";
 print_r($sort_arr);

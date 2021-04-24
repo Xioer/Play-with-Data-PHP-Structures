@@ -20,7 +20,7 @@ class SortHelper{
         for ($i=0; $i < $n; $i++) { 
             $arr[] = rand($rangeL,$rangeR);
         }
-        return array_merge(array_unique($arr),[]);
+        return $arr;
     }
 }
 ?>

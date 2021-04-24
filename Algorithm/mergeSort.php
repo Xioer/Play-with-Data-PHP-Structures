@@ -89,14 +89,14 @@ function mergeData(&$arr, $l, $mid,$r){
         }
 }
 
-$start = microtime(true);
-$arr = SortHelper::generateRandomArray(20,10,1000);
+$start = microtime();
+$arr = SortHelper::generateRandomArray(2000,10,1000000);
 // $arr = [100,4,5,6,7,2,44,59,67,57,45,71,82];
 mergeSort($arr);
-$endtime = microtime(true);
+$endtime = microtime();
 echo '排序耗时：'.($endtime - $start) .'毫秒'."\n";
-for ($i=0; $i < count($arr); $i++) { 
-    echo $arr[$i].', ';
-}
+// for ($i=0; $i < count($arr); $i++) { 
+//     echo $arr[$i].', ';
+// }
 
 ?>
