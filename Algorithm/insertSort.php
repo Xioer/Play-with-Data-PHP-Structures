@@ -29,18 +29,18 @@ function insertSort($arr)
          * 写法1:
          */
         //循环找待插入的位置
-        // for ($j = $i; $j > 0; $j--) { 
-        //     //如果前面的数 > 后面的数 就把前面的数覆盖到后面
-        //     if ($arr[$j - 1] > $value) {
-        //         //把前面的数赋值给后面的数
-        //         $arr[$j] = $arr[$j - 1];
+        for ($j = $i; $j > 0; $j--) { 
+            //如果前面的数 > 后面的数 就把前面的数覆盖到后面
+            if ($arr[$j - 1] > $value) {
+                //把前面的数赋值给后面的数
+                $arr[$j] = $arr[$j - 1];
 
-        //         //把待插入的值往前移动
-        //         $arr[$j - 1] = $value;
-        //     }else{
-        //         break;
-        //     }
-        // }
+                //把待插入的值往前移动
+                $arr[$j - 1] = $value;
+            }else{
+                break;
+            }
+        }
 
         /**
          * 写法2：
@@ -55,6 +55,18 @@ function insertSort($arr)
     }
     return $arr;
 }
+//对arr[l...r]范围的数组进行插入排序
+function insertionSort($arr, $l, $r)
+{
+   for ($i=$l+1; $i <= $r; $i++) { 
+       $value = $arr[$i];
+       for ($j=$i; $j > $l && $arr[$j - 1]; $j--) { 
+           $arr[$j] = $arr[$j - 1];
+       }
+       $arr[$j] = $value;
+   }
+}
+
 $start = microtime(true);
 $sortarr = SortHelper::generateRandomArray(10,100,500);
 $sort_arr = insertSort($sortarr);
