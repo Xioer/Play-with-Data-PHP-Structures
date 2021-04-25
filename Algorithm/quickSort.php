@@ -57,19 +57,16 @@ function quick_sort(&$arr, $l, $r)
 //快速排序 1、主方法
 function quickSort(&$arr)
 {
-    print_r($arr_len);exit;
+    $arr_len = count($arr);
     if ($arr_len <= 0) {
         return [];
     }
     quick_sort($arr, 0, $arr_len - 1);
 }
 
-$start = microtime();
 // $arr = SortHelper::generateRandomArray(200000,10,10000000);
 $arr = [100,4,5,6,7,2,44,59,67,57,45,71,82];
 quickSort($arr);
-$endtime = microtime();
-echo '排序耗时：'.($endtime - $start) .'毫秒'."\n";
 // print_r($arr);
 // for ($i=0; $i < count($arr); $i++) { 
 //     echo $arr[$i].', ';

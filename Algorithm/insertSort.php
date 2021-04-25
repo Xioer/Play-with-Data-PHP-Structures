@@ -66,10 +66,10 @@ function insertionSort($arr, $l, $r)
    }
 }
 
-$start = microtime(true);
-$sortarr = SortHelper::generateRandomArray(10,100,500);
+$start = intval(microtime(true) * 1000);
+$sortarr = SortHelper::generateRandomArray(10000,10,50);
 insertSort($sortarr);
-$endtime = microtime(true);
-echo '排序耗时：'.($endtime - $start).'毫秒'."\n";
-print_r($sort_arr);
+$endtime = intval(microtime(true) * 1000);
+echo '排序耗时：'.($endtime - $start).'ms'."\n";
+
 ?>

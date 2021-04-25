@@ -106,12 +106,9 @@ function quickSort(&$arr)
     quick_sort($arr, 0, $arr_len - 1);
 }
 
-$start = microtime();
 $arr = SortHelper::generateRandomArray(200000,10,20);
 // $arr = [100,4,5,6,7,2,44,59,67,57,45,71,82,85,98,94];
 quickSort($arr);
-$endtime = microtime();
-echo '排序耗时：'.($endtime - $start) .'毫秒'."\n";
 // print_r($arr);
 // for ($i=0; $i < count($arr); $i++) { 
 //     echo $arr[$i].', ';

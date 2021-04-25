@@ -44,10 +44,7 @@ function selectSort($arr)
     }
     return $arr;
 }
-$start = microtime(true);
 $sortarr = SortHelper::generateRandomArray(1000,100,500000);
 $sort_arr = selectSort($sortarr);
-$endtime = microtime(true);
-echo '排序耗时：'.($endtime - $start).'毫秒'."\n";
 
 ?>
